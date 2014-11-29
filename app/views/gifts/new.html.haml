@@ -1,13 +1,13 @@
-.h1 Nouveau cadeau
+%h1 Nouveau cadeau
 = form_for :gift, url: gifts_path do |f|
-  .p
+  %p
     = f.label :title
     = f.text_field :title
-  .p
+  %p
     = f.label :price
     = f.number_field :price
-  .p
+  %p
     = f.label :availability
     = f.number_field :availability
-  .p
+  %p
     = f.submit
