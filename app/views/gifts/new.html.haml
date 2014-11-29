@@ -6,7 +6,7 @@
       = pluralize(@gift.errors.count, "erreures")
       qui empêche l'ajout du cadeau:
     %ul
-      - @gift.errors.each do |attr,msg|
+      - @gift.errors.full_messages.each do |msg|
         %li
           = msg
 

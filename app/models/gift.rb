@@ -7,13 +7,13 @@ class Gift < ActiveRecord::Base
 
   def price_must_be_positive
     if ! price.nil? && price < 0
-      errors.add(:price, "Le prix doit être positif!")
+      errors.add(:price, "doit être positif (>=0)")
     end
   end
 
   def availability_must_be_strictly_positive
     if ! availability.nil? && availability <= 0
-      errors.add(:availability, "La disponnibilité du cadeau doit être plus grande que 0!")
+      errors.add(:availability, "doit être strictement positif (>0)")
     end
   end
 end
