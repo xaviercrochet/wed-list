@@ -9,11 +9,16 @@ class GiftsController < ApplicationController
 
   def create
     @gift = Gift.create(gift_params)
-    redirect_to @gift
+    if @gift.errors.any?
+      render action: :new
+    else
+      redirect_to @gift
+    end
   end
 
   def show
     @gift = Gift.find(params[:id])
+
   end
 
   private
