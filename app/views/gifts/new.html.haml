@@ -1,5 +1,15 @@
 %h1 Nouveau cadeau
 = form_for :gift, url: gifts_path do |f|
+  - if @gift.errors.any?
+    %h2
+      Il y a
+      = pluralize(@gift.errors.count, "erreures")
+      qui empêche l'ajout du cadeau:
+    %ul
+      - @gift.errors.each do |attr,msg|
+        %li
+          = msg
+
   %p
     = f.label :title
     = f.text_field :title

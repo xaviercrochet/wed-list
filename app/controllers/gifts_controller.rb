@@ -16,6 +16,12 @@ class GiftsController < ApplicationController
     end
   end
 
+  def update
+  end
+
+  def destroy
+  end
+
   def show
     @gift = Gift.find(params[:id])
 

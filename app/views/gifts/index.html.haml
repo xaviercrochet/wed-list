@@ -1,14 +1,21 @@
 .jumbotron
   %h1 Liste de mariage
 
+= link_to 'Nouveau cadeau', new_gift_path
+
 %table
   %tr
     %th Titre
     %th Prix
     %th Disponnibilité
+    %th
+    %th
 
   - @gifts.each do |gift|
     %tr
       %td= gift.title
       %td= gift.price
       %td= gift.availability
+      %th
+        - link_to gift_path(gift)
+      %th
