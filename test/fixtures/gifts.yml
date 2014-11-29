@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  status: false
+  default: 
+  price: 1
+  availability: 
+
+two:
+  title: MyString
+  status: false
+  default: 
+  price: 1
+  availability: 
