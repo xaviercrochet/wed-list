@@ -1,2 +1,14 @@
 .jumbotron
-  .h1 Liste de mariage
+  %h1 Liste de mariage
+
+%table
+  %tr
+    %th Titre
+    %th Prix
+    %th Disponnibilité
+
+  - @gifts.each do |gift|
+    %tr
+      %td= gift.title
+      %td= gift.price
+      %td= gift.availability
