@@ -28,10 +28,11 @@ gem 'spring',        group: :development
 gem 'paperclip'
 gem 'aws-sdk'
 gem 'haml'
-gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
+gem 'therubyracer'
+gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails'
 gem 'rails-i18n'
+gem 'paperclip'
 
 
 # Use ActiveModel has_secure_password
