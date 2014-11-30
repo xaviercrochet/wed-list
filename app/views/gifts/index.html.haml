@@ -3,11 +3,12 @@
 
 = link_to 'Nouveau cadeau', new_gift_path
 
-%table
+%table.text-center
   %tr
     %th Titre
     %th Prix
     %th Disponnibilité
+    %th
     %th
     %th
 
@@ -16,6 +17,9 @@
       %td= gift.title
       %td= gift.price
       %td= gift.availability
-      %th
-        - link_to gift_path(gift)
-      %th
+      %td
+        = link_to 'Détails', gift_path(gift)
+      %td
+        = link_to 'Modifier', edit_gift_path(gift)
+      %td
+        = link_to 'Supprimer', gift_path(gift), method: :delete, data: { confirm: 'Êtes vous sûr?' }

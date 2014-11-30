@@ -17,14 +17,27 @@ class GiftsController < ApplicationController
   end
 
   def update
+    @gift = Gift.find(params[:id])
+
+    if @gift.update(gift_params)
+      redirect_to @gift
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @gift = Gift.find(params[:id])
+    @gift.destroy
+    redirect_to gifts_path
+  end
+
+  def edit
+    @gift = Gift.find(params[:id])
   end
 
   def show
     @gift = Gift.find(params[:id])
-
   end
 
   private

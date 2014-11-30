@@ -1,0 +1,27 @@
+.form-horizontal
+  = form_for :gift, url: gifts_path do |f|
+    - if @gift.errors.any?
+      .text-center
+        %h3 Votre cadeau n'a pas été créé.
+      - @gift.errors.full_messages.each do |msg|
+        .alert.alert-danger.alert-dismissable
+          %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
+          = msg
+    .form-group
+      .sr-only
+        = f.label :title
+      = f.text_field :title, placeholder: "Titre", class: "form-control"
+    .col-md-6.form-group.input-group
+      .sr-only
+        = f.label :price
+      .input-group-addon
+        €
+      = f.number_field :price, class: 'form-control'
+    .col-md-6.form-group.input-group
+      .sr-only
+        = f.label :availability
+      .input-group-addon Quantité
+      = f.number_field :availability, class: 'form-control'
+    .row.col-md-2.col-md-offset-5
+      = button_tag(type: 'submit', class: "btn btn-lg") do
+        %i.glyphicon.glyphicon-ok
