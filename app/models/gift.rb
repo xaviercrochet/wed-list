@@ -4,6 +4,9 @@ class Gift < ActiveRecord::Base
   validates :availability, presence: true
   validate :price_must_be_positive, :availability_must_be_strictly_positive
 
+  has_many :gift_images, dependent: :destroy
+  accepts_nested_attributes_for :gift_images, allow_destroy: true
+
 
   def price_must_be_positive
     if ! price.nil? && price < 0
