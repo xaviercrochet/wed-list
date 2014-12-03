@@ -8,6 +8,8 @@
   Disponnibilité:
   = @gift.availability
 %p
-  = image_tag @gift.gift_images.first.photo.url(:medium)
+  - @gift.gift_images.each do |image|
+    %li
+      = image_tag image.photo.url(:medium)
 %p
   = link_to "Modifier", edit_gift_path(@gift)

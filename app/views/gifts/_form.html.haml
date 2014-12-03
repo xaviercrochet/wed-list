@@ -17,12 +17,9 @@
     = f.label :availability, "Disponibilité"
     %br
     = f.number_field :availability
-
-  = f.fields_for :gift_images do |builder|
-    %li
-      = builder.label :photo, "Photo"
-      %br
-      = builder.file_field :photo
-      %br
+  %p
+    = f.fields_for :gift_images do |builder|
+      = render "gift_image_fields", f: builder
+    = link_to_add_fields "Ajouter une photo", f, :gift_images
   %p
     = f.submit
