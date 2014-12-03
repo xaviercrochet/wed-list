@@ -1,5 +1,5 @@
 
-= form_for :gift, url: gifts_path do |f|
+= form_for @gift, html: {multipart: true} do |f|
   - if @gift.errors.any?
     %h3 Votre cadeau n'a pas été créé.
     - @gift.errors.full_messages.each do |msg|
@@ -18,8 +18,8 @@
     %br
     = f.number_field :availability
 
-  = f.fields_for :git_images do |builder|
-    %fieldset
+  = f.fields_for :gift_images do |builder|
+    %li
       = builder.label :photo, "Photo"
       %br
       = builder.file_field :photo

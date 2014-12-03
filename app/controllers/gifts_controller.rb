@@ -5,9 +5,11 @@ class GiftsController < ApplicationController
 
   def new
     @gift = Gift.new
+    @gift.gift_images << GiftImage.new
   end
 
   def create
+    p params[:gift].inspect
     @gift = Gift.create(gift_params)
     if @gift.errors.any?
       render action: :new
@@ -43,6 +45,6 @@ class GiftsController < ApplicationController
   private
 
     def gift_params
-      params.require(:gift).permit(:title, :price, :availability, :gift_images)
+      params.require(:gift).permit(:title, :price, :availability, gift_images_attributes: [:id, :photo])
     end
 end

@@ -1,8 +1,14 @@
 %p
-  %strong
-    = @gift.title
+  = @gift.title
 %p
-  %strong Prix:
+  Prix
+  %br
   = @gift.price
-  %strong Disponnibilité:
+%p
+  Disponnibilité
+  %br
   = @gift.availability
+%p
+  = image_tag @gift.gift_images.first.photo.url(:medium)
+%p
+  = link_to "Modifier", edit_gift_path(@gift)
