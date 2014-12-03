@@ -1,12 +1,11 @@
-%p
+%h1
   = @gift.title
 %p
-  Prix
-  %br
+  Prix:
   = @gift.price
+  €
 %p
-  Disponnibilité
-  %br
+  Disponnibilité:
   = @gift.availability
 %p
   = image_tag @gift.gift_images.first.photo.url(:medium)
