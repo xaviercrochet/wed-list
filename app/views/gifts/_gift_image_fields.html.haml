@@ -1,8 +1,8 @@
 %fieldset
   = f.label :photo, "Photo"
   %br
-  = f.hidden_field :_destroy
   = image_tag f.object.photo.url(:medium) if f.object.photo?
   = f.file_field :photo
+  = f.hidden_field :_destroy
   = link_to "remove", "#", class: "remove_fields"
   %br
