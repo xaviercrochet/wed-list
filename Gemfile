@@ -34,6 +34,8 @@ gem 'twitter-bootstrap-rails'
 gem 'rails-i18n'
 gem 'aws-sdk'
 gem 'paperclip'
+gem 'bcrypt'
+gem 'devise'
 
 
 # Use ActiveModel has_secure_password
