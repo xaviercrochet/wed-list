@@ -1,4 +1,5 @@
 class GiftsController < ApplicationController
+  load_and_authorize_resource
   def index
     @gifts = Gift.all
   end
