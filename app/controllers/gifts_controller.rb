@@ -9,7 +9,6 @@ class GiftsController < ApplicationController
   end
 
   def create
-    p params[:gift].inspect
     @gift = Gift.create(gift_params)
     if @gift.errors.any?
       render action: :new
