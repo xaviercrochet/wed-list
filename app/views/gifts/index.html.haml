@@ -23,3 +23,6 @@
         = link_to 'Modifier', edit_gift_path(gift)
       %td
         = link_to 'Supprimer', gift_path(gift), method: :delete, data: { confirm: 'Êtes-vous sûr?' }
+
+%br
+  = render 'shared/menu_items'
