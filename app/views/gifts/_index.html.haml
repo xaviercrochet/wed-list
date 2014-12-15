@@ -1,0 +1,13 @@
+%table.text-center
+  %tr
+    %th Titre
+    %th Prix
+    %th Disponnibilité
+    %th
+
+  - @gifts.each do |gift|
+    %tr
+      %td= gift.title
+      %td= gift.price
+      %td= gift.availability
+      %th= link_to "Détails", gift_path(gift)
