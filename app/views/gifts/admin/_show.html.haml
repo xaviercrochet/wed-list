@@ -1,0 +1,15 @@
+%h1
+  = @gift.title
+%p
+  Prix:
+  = @gift.price
+  €
+%p
+  Disponnibilité:
+  = @gift.availability
+%p
+  - @gift.gift_images.each do |image|
+    %li
+      = image_tag image.photo.url(:medium)
+%p
+  = link_to "Modifier", edit_gift_path(@gift)
