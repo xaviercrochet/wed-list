@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  gift_id: 
+  quantity: 
+  price: 
+  boolean: 
+  communication: 1
+
+two:
+  user_id: 
+  gift_id: 
+  quantity: 
+  price: 
+  boolean: 
+  communication: 1
