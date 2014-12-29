@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: "users/registrations"}
 
-  resources :gifts
+  resources :gifts do
+    resources :transactions, only: [:new, :create]
+  end
 
   root 'gifts#index'
   # The priority is based upon order of creation: first created -> highest priority.
