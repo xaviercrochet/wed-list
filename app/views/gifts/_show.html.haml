@@ -13,4 +13,6 @@
       = image_tag image.photo.url(:medium)
 
 %p
-  = link_to "Ajouter au panier", gift_transactions_path(@gift, @transaction), method: :post
+  /= link_to "Ajouter au panier", gift_transactions_path(@gift, @transaction), method: :post
+  - if @gift.available?
+    = render 'transaction_form'
