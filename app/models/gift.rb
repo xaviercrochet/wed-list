@@ -5,6 +5,7 @@ class Gift < ActiveRecord::Base
   validate :price_must_be_positive, :availability_must_be_strictly_positive
 
   has_many :gift_images, dependent: :destroy
+  has_many :transactions, dependent: :destroy
   accepts_nested_attributes_for :gift_images, allow_destroy: true
 
 

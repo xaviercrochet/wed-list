@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: "users/registrations"}
 
   resources :gifts do
-    resources :transactions, only: [:new, :create]
+    resources :transactions, only: [:create]
   end
 
   root 'gifts#index'

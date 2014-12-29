@@ -40,6 +40,7 @@ class GiftsController < ApplicationController
 
   def show
     @gift = Gift.find(params[:id])
+    @transaction = @gift.transactions.new
   end
 
   private
