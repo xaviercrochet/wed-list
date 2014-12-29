@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :transactions, only: [:create]
   end
 
+  resources :transactions, only: [:show, :update, :index, :destroy]
+
+
   root 'gifts#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
