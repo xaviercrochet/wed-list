@@ -1,6 +1,7 @@
 class Transaction < ActiveRecord::Base
   belongs_to :user
   belongs_to :gift
+  belongs_to :order
 
   before_destroy :restore_availability_on_destroy
 
@@ -8,10 +9,7 @@ class Transaction < ActiveRecord::Base
 
   def self.update_availability_and_set_transaction_price(gift, transaction)
     price = transaction.quantity * gift.price
-    p "availability : "+gift.availability.to_s
-    p "quantity : " +transaction.quantity.to_s
     availability = gift.availability - transaction.quantity
-    p "coucou" + availability.to_s
     gift.update(availability: availability)
     transaction.update(price: price)
   end
@@ -21,8 +19,13 @@ class Transaction < ActiveRecord::Base
      @gift.has_enough_availability?(quantity)
   end
 
+  def has_order?
+    ! self.order.nil?
+  end
+
   def restore_availability_on_destroy
-    @gift = Gift.find(gift_id)
-    @gift.update(availability: @gift.availability+quantity) if ! quantity.nil?
+    if ! (has_order and self.order.validated?)
+      self.gift.update(availability: self.gift.availability+quantity) if ! quantity.nil?
+    end
   end
 end
