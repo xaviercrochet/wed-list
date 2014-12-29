@@ -11,3 +11,6 @@
   - @gift.gift_images.each do |image|
     %li
       = image_tag image.photo.url(:medium)
+
+%p
+  = link_to "Ajouter au panier", new_gift_transaction_path(@gift, current_user)
