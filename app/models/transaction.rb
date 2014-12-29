@@ -18,10 +18,11 @@ class Transaction < ActiveRecord::Base
 
   def gift_has_enough_quantity
      @gift = Gift.find(gift_id)
-     @gift.has_enough_quantity?(quantity)
+     @gift.has_enough_availability?(quantity)
   end
 
   def restore_availability_on_destroy
-    @gift.update(availability: availability+quantity)
+    @gift = Gift.find(gift_id)
+    @gift.update(availability: @gift.availability+quantity) if ! quantity.nil?
   end
 end

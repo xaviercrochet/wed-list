@@ -1,0 +1,7 @@
+%p
+  = form_for [@gift, @transaction] do |f|
+    %p
+      = f.label :quantity, "Quantitée"
+      = select_tag :quantity, options_for_select((1..@gift.availability))
+    %p
+      = f.submit "Ajouter au panier"

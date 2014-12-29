@@ -17,7 +17,7 @@ class Gift < ActiveRecord::Base
   end
 
   def availability_must_be_positive
-    if ! availability.nil && availability <0
+    if ! availability.nil? && availability <0
       errors.add(:availability, "doit être positif (>= 0)")
     end
   end
