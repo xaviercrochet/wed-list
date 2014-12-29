@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :user_id
       t.boolean :validated
       t.boolean :paid
-      t.integer :comunication
+      t.integer :communication
       t.integer :price
 
       t.timestamps
