@@ -1,12 +1,4 @@
-.jumbotron
-  %h1 Liste de mariage
-
 - if user_signed_in? && current_user.admin?
   = render 'gifts/admin/index'
 - else
   = render 'index'
-
-
-
-%br
-  = render 'shared/menu_items'
