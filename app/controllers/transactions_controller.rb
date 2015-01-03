@@ -1,7 +1,9 @@
 class TransactionsController < ApplicationController
+  before_action :authenticate_user!
+  load_and_authorize_resource
 
   def new
-
+    @gift = Gift.new
   end
 
   def create

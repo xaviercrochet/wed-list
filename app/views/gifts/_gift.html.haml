@@ -7,19 +7,20 @@
       %p
         Prix:
         = gift.price
+        %span.glyphicon.glyphicon-euro
       %p
         - if gift.available?
           Disponnibilité:
           = gift.availability
         - else
-          .red
+          .red.small
             Cet article n'est plus disponnible
       = link_to gift_path(gift), class: "thumbnail" do
         = image_tag gift.gift_images.first.photo.url(:medium), style: "height: 200px; width: 100%"
       %p
         .pull-left
         - if user_signed_in?
-          = render "transaction_form_2", gift: gift
+          = render "transaction_form", gift: gift
         .pull-right
           = link_to gift_path(gift) do
             %span.glyphicon.glyphicon-zoom-in
