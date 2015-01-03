@@ -1,17 +1,25 @@
 
 .col-sm-4.col-md-4
-  .thumbnail
-    = image_tag gift.gift_images.first.photo.url(:medium)
-    .caption
-      %h3.text-center
-        =gift.title
+  .panel.panel-default
+    .panel-heading.text-center.small
+      =gift.title
+    .panel-body
       %p
         Prix:
         = gift.price
       %p
-        Disponnibilité:
-        = gift.availability
+        - if gift.available?
+          Disponnibilité:
+          = gift.availability
+        - else
+          .red
+            Cet article n'est plus disponnible
+      = link_to gift_path(gift), class: "thumbnail" do
+        = image_tag gift.gift_images.first.photo.url(:medium), style: "height: 200px; width: 100%"
       %p
-        = link_to "Détails", gift_path(gift), class: "btn btn-default"
-        - if user_signed_in? && gift.available?
+        .pull-left
+        - if user_signed_in?
           = render "transaction_form_2", gift: gift
+        .pull-right
+          = link_to gift_path(gift) do
+            %span.glyphicon.glyphicon-zoom-in

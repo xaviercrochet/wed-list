@@ -10,5 +10,7 @@ main = ->
     $(this).before($(this).data('fields').replace(regexp, time))
     event.preventDefault()
 
+  $('.has-tooltip').tooltip();
+
 $(document).ready(main)
 $(document).on('page:load', main)
