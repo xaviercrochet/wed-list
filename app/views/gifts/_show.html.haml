@@ -15,4 +15,4 @@
 %p
   /= link_to "Ajouter au panier", gift_transactions_path(@gift, @transaction), method: :post
   - if @gift.available?
-    = render 'transaction_form'
+    = render 'transaction_form_2', gift: @gift
