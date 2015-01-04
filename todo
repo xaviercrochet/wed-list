@@ -2,3 +2,4 @@ Modifier les transactions
 Merger les transactions qui portent sur le même gift
 rendre moin moche la vue détail sur gift
 ajouter small & huge aux photos
+refactor transaction.self.update_availability_and_set_transaction_price
