@@ -11,8 +11,10 @@
     #coucou.collapse.navbar-collapse
       .navbar-left
         %ul.nav.navbar-nav
-          - if user_signed_in? && ! current_user.admin?
+          - if user_signed_in?
             %li
+            - if current_user.admin?
+            - else
               = link_to "Mes commandes", user_transactions_path(current_user)
 
       .navbar-right
