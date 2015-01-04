@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :transactions, only: [:show, :update, :index, :destroy]
+    resources :orders
   end
 
 

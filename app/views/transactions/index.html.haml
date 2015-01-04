@@ -23,3 +23,7 @@
         %td
           = link_to user_transaction_path(current_user, transaction), method: :delete do
             %span.glyphicon.glyphicon-remove
+
+- if @transactions.unordered.size > 0
+  .pull-right
+    = link_to "Commander ces articles", user_orders_path(current_user), method: :post
