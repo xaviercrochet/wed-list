@@ -12,6 +12,7 @@ class Ability
       can :read, Gift
       can :read, Transaction
       can :destroy, Transaction, :user_id => user.id, :order_id => nil
+      can :create, Order
     end
     #
     # The first argument to `can` is the action you are giving the user
