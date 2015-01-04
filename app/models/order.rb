@@ -13,14 +13,13 @@ class Order < ActiveRecord::Base
   end
 
   def generate_communication
-    seed = self.id
-    while seed <= 9999999999
-      seed *= 10
-    end
-    seed /= 10
-    modulo = 10%97
-    self.communication = seed.to_s + modulo.to_s
+    hashids = Hashids.new("Coucou", 10)
+    self.communication = hashids.encode(self.id)
     self.save
   end
 
+  def self.decode_communication(hash)
+    hashids = Hashids.new("Coucou", 10)
+    return hashids.decode(hash)
+  end
 end
