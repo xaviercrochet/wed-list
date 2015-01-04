@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     resources :transactions, only: [:create]
   end
 
-  resources :transactions, only: [:show, :update, :index, :destroy]
+  resources :users do
+    resources :transactions, only: [:show, :update, :index, :destroy]
+  end
 
 
   root 'gifts#index'

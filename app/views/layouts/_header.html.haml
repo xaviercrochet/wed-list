@@ -9,6 +9,11 @@
       = link_to "Home", root_path, class: 'navbar-brand'
 
     #coucou.collapse.navbar-collapse
+      .navbar-left
+        %ul.nav.navbar-nav
+          - if user_signed_in? && ! current_user.admin?
+            %li
+              = link_to "Mes commandes", user_transactions_path(current_user)
 
       .navbar-right
         %ul.nav.navbar-nav

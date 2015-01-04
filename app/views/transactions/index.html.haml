@@ -1,0 +1,25 @@
+%h3.text-center Non commandés
+%table.table.table-striped.table-hover
+  %thead.text-center
+    %tr
+      %th.text-center
+        %span.glyphicon.glyphicon-gift
+      %th.text-center
+        Quantité
+      %th.text-center
+        %span.glyphicon.glyphicon-euro
+      %th.text-center
+        Modifier/Supprimer
+  %tbody.text-center
+    - @transactions.unordered.each do |transaction|
+      %tr
+        %td
+          = link_to transaction.gift do
+            = image_tag transaction.gift.gift_images.first.photo.url(:medium), style: "height: 50px;"
+        %td
+          = transaction.quantity
+        %td
+          = transaction.price
+        %td
+          = link_to user_transaction_path(current_user, transaction), method: :delete do
+            %span.glyphicon.glyphicon-remove

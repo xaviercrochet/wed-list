@@ -2,6 +2,8 @@ class Transaction < ActiveRecord::Base
   belongs_to :user
   belongs_to :gift
   belongs_to :order
+  scope :ordered, -> { where.not(order_id: nil) }
+  scope :unordered, -> { where(order_id: nil) }
 
   before_destroy :restore_availability_on_destroy
 
@@ -24,7 +26,7 @@ class Transaction < ActiveRecord::Base
   end
 
   def restore_availability_on_destroy
-    if ! (has_order and self.order.validated?)
+    if ! (has_order? and self.order.validated?)
       self.gift.update(availability: self.gift.availability+quantity) if ! quantity.nil?
     end
   end
