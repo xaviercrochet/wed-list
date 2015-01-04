@@ -14,7 +14,7 @@ class TransactionsController < ApplicationController
     @gift = Gift.find(params[:gift_id])
     @transaction = @gift.transactions.create(user_id: current_user.id, quantity: params[:quantity])
     Transaction.update_availability_and_set_transaction_price(@gift, @transaction)
-    redirect_to @transaction.gift
+    redirect_to root_path
   end
 
   def destroy

@@ -11,6 +11,7 @@ class Ability
     else
       can :read, Gift
       can :read, Transaction
+      can :create, Transaction
       can :destroy, Transaction, :user_id => user.id, :order_id => nil
       can :create, Order
     end
