@@ -1,6 +1,6 @@
 class Order < ActiveRecord::Base
   belongs_to :user
-  has_many :transactions
+  has_many :transactions, dependent: :destroy
   after_create :compute_price, :generate_communication
 
   def compute_price
