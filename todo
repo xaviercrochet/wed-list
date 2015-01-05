@@ -1,7 +1,9 @@
-Modifier les transactions
+Pouvoir Modifier les transactions
 Merger les transactions qui portent sur le même gift (easy, il suffit de regarder s'il existe une transaction sans order_id qui a le meme user_id ;-)
 rendre moin moche la vue détail sur gift
 ajouter small & huge aux photos
 refactor transaction.self.update_availability_and_set_transaction_price
 limit ability of admin (destroying some stuff i.e.)
 ajouter numéro de téléphone ds user
+Tuner profil utilisateur
+nombre d'order sur les nav tabs

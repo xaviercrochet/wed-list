@@ -39,4 +39,8 @@ class OrdersController < ApplicationController
     @order.generate_communication
     redirect_to user_transactions_path(current_user)
   end
+
+  def index
+    @orders = current_user.orders
+  end
 end

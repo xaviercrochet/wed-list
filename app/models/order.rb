@@ -2,6 +2,10 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_many :transactions, dependent: :destroy
   after_create :compute_price, :generate_communication
+  scope :paid, -> {where(paid: true) }
+  scope :unpaid, -> { where(paid: false)}
+  scope :validated, -> { where(validated: true)}
+  scope :unvalidated, -> { where(validated: false)}
 
   def compute_price
     price = 0
@@ -29,6 +33,7 @@ class Order < ActiveRecord::Base
 
   def validate
     self.validated = true
+    self.paid = true
     self.save
   end
 

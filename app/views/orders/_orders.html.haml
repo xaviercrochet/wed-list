@@ -1,0 +1,19 @@
+%table.table.table-striped.table-hover
+  %thead.text-center
+    %tr
+      %th.text-center
+        %span.glyphicon.glyphicon-euro
+      %th.text-center
+        Communication
+      %th.text-center
+        Infos
+  %tbody
+    - orders.each do |o|
+      %tr
+        %th.text-center
+          =o.price
+        %th.text-center
+          =o.communication
+        %th.text-center
+          =link_to user_order_path(current_user, o) do
+            %span.glyphicon.glyphicon-zoom-in

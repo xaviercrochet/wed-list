@@ -19,7 +19,9 @@
                 = link_to "Valider une commande", validate_orders_path
             - else
               %li
-                = link_to "Mes commandes", user_transactions_path(current_user)
+                = link_to "Mon panier", user_transactions_path(current_user)
+              %li
+                = link_to "Mes commmandes", user_orders_path(current_user)
 
       .navbar-right
         %ul.nav.navbar-nav
