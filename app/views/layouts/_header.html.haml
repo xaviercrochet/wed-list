@@ -12,10 +12,14 @@
       .navbar-left
         %ul.nav.navbar-nav
           - if user_signed_in?
-            %li
             - if current_user.admin?
+              %li
+                = link_to "Gérer les commandes"
+              %li
+                = link_to "Valider une commande", validate_orders_path
             - else
-              = link_to "Mes commandes", user_transactions_path(current_user)
+              %li
+                = link_to "Mes commandes", user_transactions_path(current_user)
 
       .navbar-right
         %ul.nav.navbar-nav

@@ -1,0 +1,20 @@
+.col-md-8.col-md-offset-2
+  .panel.panel-default
+    .panel-heading.text-center
+      La commande a été trouvée mais n'a pas pu être validée :-/
+    .panel-body
+      %p.bg-danger
+        Le prix que vous avez entré (
+        =@amount
+        €) ne corespond pas au prix enregistré pour la commande (
+        =@order.price
+        €).
+      %p.bg-warning
+        Pour contacter la personne concernée cliquez
+        = link_to "ici", @order.user
+      %p.bg-danger
+        Voulez vous tout de même valider la commande?
+        .pull-right
+          = link_to "Oui", order_validates_path(@order), class: "btn btn-danger", method: :post
+        .pull-left
+          = link_to "Non", validate_orders_path, class: "btn btn-default"

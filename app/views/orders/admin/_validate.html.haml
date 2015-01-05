@@ -1,0 +1,26 @@
+.col-md-6.col-md-offset-3
+  - if flash[:success] == false
+    .alert.alert-danger.alert-dissmissible.text-center
+      La commande n'a pas été trouvée :-/
+      %button.close{"data-dismiss" => "alert", "aria-label" => "close"}
+        %span{"arria-hidden" => "true"}
+          &times;
+  - elsif flash[:success] == true
+    .alert.alert-success.alert-dissmissible.text-center
+      La commande a été validée avec succès :-)
+      %button.close{"data-dismiss" => "alert", "aria-label" => "close"}
+        %span{"arria-hidden" => "true"}
+          &times;
+
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title.text-center
+        Valider une commande
+    .panel-body
+      .form
+        = form_tag "/orders/save_validation" do
+          .form-group
+            = text_field_tag :communication, nil, placeholder: "Communication", class:"form-control"
+          .form-group
+            = number_field_tag :amount, nil, placeholder: "Montant reçu (€)", class: "form-control"
+          = submit_tag "Valider", class: "btn btn-block btn-primary"

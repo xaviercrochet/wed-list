@@ -22,4 +22,17 @@ class Order < ActiveRecord::Base
     hashids = Hashids.new("Coucou", 10)
     return hashids.decode(hash)
   end
+
+  def self.retrieve_order_from_hash(hash)
+    return Order.find(Order.decode_communication(hash)).first
+  end
+
+  def validate
+    self.validated = true
+    self.save
+  end
+
+  def verify_amount(amount)
+    return self.price == amount.to_i
+  end
 end

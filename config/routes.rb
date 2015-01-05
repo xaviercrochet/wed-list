@@ -10,8 +10,14 @@ Rails.application.routes.draw do
     resources :orders
   end
 
-  resources :orders, only: [:show, :index, :destroy]
-  
+  resources :orders, only: [:show, :index, :destroy] do
+    post :validates
+    collection do
+      get :validate
+      post :save_validation
+    end
+  end
+
 
 
   root 'gifts#index'
