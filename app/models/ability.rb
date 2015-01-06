@@ -16,6 +16,8 @@ class Ability
       can :create, Order
       can :read, Order, :user_id => user.id
       can :destroy, Order, :user_id => user.id, paid: false
+      can :pay, Order, :user_id => user.id, paid: false
+      can :paid, Order, user_id: user.id, paid: false
     end
     #
     # The first argument to `can` is the action you are giving the user
