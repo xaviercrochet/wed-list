@@ -10,6 +10,8 @@
       - if unpaid
         %th.text-center
           Payer
+        %th.text-center
+          Supprimer
 
   %tbody
     - orders.each do |o|
@@ -19,9 +21,12 @@
         %th.text-center
           =o.communication
         %th.text-center
-          =link_to user_order_path(current_user, o) do
+          =link_to user_order_path(current_user, o), class: "btn" do
             %span.glyphicon.glyphicon-zoom-in
         - if unpaid
           %th.text-center
-            = link_to order_pay_path(o) do
+            = link_to order_pay_path(o), class: "btn" do
               %span.glyphicon.glyphicon-send
+          %th.text-center
+            = link_to user_order_path(o.user, o), method: :delete, class: "btn" do
+              %span.glyphicon.glyphicon-remove

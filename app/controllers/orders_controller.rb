@@ -19,6 +19,13 @@ class OrdersController < ApplicationController
     redirect_to @order
   end
 
+  def destroy
+    @user = @order.user
+    @order = Order.find(params[:id])
+    @order.destroy if ! @order.nil?
+    redirect_to user_orders_path(@user)
+  end
+
   def show
     @order = Order.find(params[:id])
   end

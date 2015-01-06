@@ -1,0 +1,42 @@
+.col-md-6.col-md-offset-3
+
+  .panel.panel-default
+    .panel-heading
+      .row
+        .col-md-3
+          Prix
+        .col-md-6
+          Communication Libre
+        .col-md-3
+          Statut
+    .panel-body
+      .row
+        .col-md-3
+          = @order.price
+          %span.glyphicon.glyphicon-euro
+        .col-md-6.text-center
+          = @order.communication
+        .col-md-3
+          - if @order.paid
+            %span.label.label-success
+              Payé
+          - else
+            %span.label.label-danger
+              Non Payé
+          - if @order.validated
+            %span.label.label-success
+              Validé
+          - else
+            %span.label.label-warning
+              Non validé
+    .panel-heading
+      = link_to user_orders_path(@order.user), class: "btn btn-primary btn-lg btn-block" do
+        .pull-left
+          %span.glyphicon.glyphicon-chevron-left
+        Mes commandes
+      -if ! @order.paid
+        = link_to "Payer maintenant", order_pay_path(@order), class: "btn btn-primary btn-lg btn-block"
+        = link_to user_order_path(@order.user, @order), method: :delete, class: "btn btn-danger btn-lg btn-block" do
+          Supprimer
+          .pull-right
+            %span.glyphicon.glyphicon-remove
