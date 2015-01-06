@@ -1,6 +1,5 @@
 class ModifyCommunicationType < ActiveRecord::Migration
   def change
-    change_column :orders, :comunication, :string
-    rename_column :orders, :comunication, :communication
+    change_column :orders, :communication, :string
   end
 end
