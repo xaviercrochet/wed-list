@@ -16,3 +16,5 @@
 /tmp
 #uploaded images
 public/system/gift_images/photos/*
+.env
+Procfile
