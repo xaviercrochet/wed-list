@@ -15,7 +15,6 @@
  */
  body {
    padding-top: 55px;
-   background-image: url(image_path('bg.jpg'));
    font-family: "Helvetica Neue";
    font-weight: lighter;
  }
