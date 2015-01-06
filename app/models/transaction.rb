@@ -9,12 +9,6 @@ class Transaction < ActiveRecord::Base
 
   validate :gift_has_enough_quantity, on: [:create, :update]
 
-  def self.update_availability_and_set_transaction_price(gift, transaction)
-    price = transaction.quantity * gift.price
-    availability = gift.availability - transaction.quantity
-    gift.update(availability: availability)
-    transaction.update(price: price)
-  end
 
   def gift_has_enough_quantity
      @gift = Gift.find(gift_id)
@@ -24,6 +18,26 @@ class Transaction < ActiveRecord::Base
   def has_order?
     ! self.order.nil?
   end
+
+  def update_transaction_quantity_and_price(quantity)
+    new_quantity = self.quantity + quantity.to_i
+    self.quantity = new_quantity
+    self.price = new_quantity * self.gift.price
+    self.save
+  end
+
+  def set_price
+    self.price = self.quantity * self.gift.price
+    self.save
+  end
+
+  def self.look_for_same_transaction(gift, user)
+    results = Transaction.where(gift_id: gift.id, user_id: user.id, order_id: nil)
+    return results.first if ! results.empty?
+  end
+
+
+
 
   def restore_availability_on_destroy
     if ! (has_order? and self.order.validated?)

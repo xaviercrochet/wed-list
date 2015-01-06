@@ -28,6 +28,12 @@ class Gift < ActiveRecord::Base
     end
   end
 
+  def update_availability_by(quantity)
+    new_availability = self.availability - quantity.to_i
+    self.availability = new_availability
+    self.save
+  end
+
   def available?
     availability > 0
   end

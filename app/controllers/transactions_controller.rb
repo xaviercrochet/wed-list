@@ -11,9 +11,17 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @gift = Gift.find(params[:gift_id])
-    @transaction = @gift.transactions.create(user_id: current_user.id, quantity: params[:quantity])
-    Transaction.update_availability_and_set_transaction_price(@gift, @transaction)
+    gift = Gift.find(params[:gift_id])
+    transaction = Transaction.look_for_same_transaction(gift, current_user)
+    #if don't exist, create it!
+    if transaction.nil?
+      transaction = gift.transactions.create(user_id: current_user.id, quantity: params[:quantity])
+      transaction.set_price()
+    else
+      transaction.update_transaction_quantity_and_price(params[:quantity])
+    end
+    #update gift availability
+    gift.update_availability_by(params[:quantity])
     redirect_to root_path
   end
 
