@@ -12,9 +12,12 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:show, :index, :destroy] do
     post :validates
+    post :paid
+    get :pay
     collection do
       get :validate
       post :save_validation
+
     end
   end
 

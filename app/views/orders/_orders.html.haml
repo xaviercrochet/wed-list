@@ -7,6 +7,10 @@
         Communication
       %th.text-center
         Infos
+      - if unpaid
+        %th.text-center
+          Payer
+
   %tbody
     - orders.each do |o|
       %tr
@@ -17,3 +21,7 @@
         %th.text-center
           =link_to user_order_path(current_user, o) do
             %span.glyphicon.glyphicon-zoom-in
+        - if unpaid
+          %th.text-center
+            = link_to order_pay_path(o) do
+              %span.glyphicon.glyphicon-send

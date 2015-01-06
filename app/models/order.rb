@@ -31,6 +31,11 @@ class Order < ActiveRecord::Base
     return Order.find(Order.decode_communication(hash)).first
   end
 
+  def pay
+    self.paid = true
+    self.save
+  end
+
   def validate
     self.validated = true
     self.paid = true

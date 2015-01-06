@@ -9,6 +9,20 @@ class OrdersController < ApplicationController
   def validate
   end
 
+  def pay
+    @order = Order.find(params[:id])
+  end
+
+  def paid
+    @order = ORder.find(params[:id])
+    @order.pay
+    redirect_to @order
+  end
+
+  def show
+    @order = Order.find(params[:id])
+  end
+
   def validates
     @order = Order.find(params[:order_id])
     @order.validate
