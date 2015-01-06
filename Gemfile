@@ -36,6 +36,7 @@ gem 'bcrypt'
 gem 'devise'
 gem 'cancancan', '~> 1.9'
 gem 'hashids'
+gem 'unicorn'
 
 
 # Use ActiveModel has_secure_password
