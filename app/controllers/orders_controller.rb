@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def paid
-    @order = ORder.find(params[:order_id])
+    @order = Order.find(params[:order_id])
     @order.pay
     redirect_to @order
   end
