@@ -6,7 +6,7 @@ class GiftsController < ApplicationController
 
   def new
     @gift = Gift.new
-    @gift.gift_images << GiftImage.new
+    @gift.gift_image = GiftImage.new
   end
 
   def create

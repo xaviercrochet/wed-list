@@ -7,7 +7,7 @@ class Gift < ActiveRecord::Base
 
   has_one :gift_image, dependent: :destroy
   has_many :transactions, dependent: :destroy
-  accepts_nested_attributes_for :gift_images, allow_destroy: true
+  accepts_nested_attributes_for :gift_image, allow_destroy: true
 
 
   def price_must_be_positive

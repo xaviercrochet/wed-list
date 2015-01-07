@@ -1,25 +1,23 @@
 
-= form_for @gift, html: {multipart: true} do |f|
-  - if @gift.errors.any?
-    %h3 Votre cadeau n'a pas été créé.
-    - @gift.errors.full_messages.each do |msg|
-      %p
-        = msg
-  %p
-    = f.label :title
-    %br
-    = f.text_field :title, placeholder: "Titre"
-  %p
-    = f.label :price, "Prix"
-    %br
-    = f.number_field :price
-  %p
-    = f.label :availability, "Disponibilité"
-    %br
-    = f.number_field :availability
-  %p
-    = f.fields_for :gift_images do |builder|
-      = render "gift_image_fields", f: builder
-    = link_to_add_fields "Ajouter une photo", f, :gift_images
-  %p
-    = f.submit
+.form
+  = form_for @gift, html: {multipart: true} do |f|
+    - if @gift.errors.any?
+      %h3 Votre cadeau n'a pas été créé.
+      - @gift.errors.full_messages.each do |msg|
+        %p
+          = msg
+    .form-group
+      = f.text_field :title, placeholder: "Titre", class: "form-control"
+    .form-group
+      = f.text_area :description, placeholder: "Description", class: "form-control"
+    .form-group.pull-left
+      = f.number_field :price, placeholder: "Prix", class: "form-control"
+    .form-group.pull-right
+      = f.number_field :availability, placeholder: "Disponnibilité", class: "form-control"
+    .form-group
+      = f.label :photo, "Photo"
+      = f.image_tag f.object.gift_image.photo.url(:medium) if f.object.gift_image.photo?
+      = f.file_field :photo
+    .form-group
+
+      = f.submit "Créer le cadeau", class: "btn btn-primary btn-lg btn-block"
