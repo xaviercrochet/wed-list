@@ -1,15 +1,23 @@
-%h1
-  = @gift.title
-%p
-  Prix:
-  = @gift.price
-  €
-%p
-  Disponnibilité:
-  = @gift.availability
-%p
-  - @gift.gift_images.each do |image|
-    %li
-      = image_tag image.photo.url(:medium)
+.panel.panel-default
+  .panel-heading.text-center
+    = @gift.title
+  .panel-body
+    .row
+      .col-md-4
+        .thumbnail
+          = image_tag @gift.gift_image.photo.url(:medium)
+      .col-md-8
+        .caption
+          = @gift.description
+
+          = @gift.price
+          %span.glyphicon.glyphicon-euro
+          - if @gift.available?
+            .small
+              Disponnibilité:
+              = @gift.availability
+          - else
+            .red
+              Cet article n'est plus disponnible
 %p
   = link_to "Modifier", edit_gift_path(@gift)

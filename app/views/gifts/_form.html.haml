@@ -15,9 +15,10 @@
     .form-group.pull-right
       = f.number_field :availability, placeholder: "Disponnibilité", class: "form-control"
     .form-group
-      = f.label :photo, "Photo"
-      = f.image_tag f.object.gift_image.photo.url(:medium) if f.object.gift_image.photo?
-      = f.file_field :photo
+      = f.fields_for @gift.gift_image do |builder|
+        = builder.label :photo, "Photo"
+        = builder.image_tag builder.object.photo.url(:medium) if builder.object.photo?
+        = builder.file_field :photo
     .form-group
 
       = f.submit "Créer le cadeau", class: "btn btn-primary btn-lg btn-block"

@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150107160301) do
     t.integer  "availability"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description"
+    t.text     "description"
   end
 
   create_table "orders", force: true do |t|

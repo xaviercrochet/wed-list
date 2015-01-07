@@ -35,16 +35,17 @@ class GiftsController < ApplicationController
   end
 
   def edit
-    @gift = Gift.includes(:gift_images).find(params[:id])
+    @gift = Gift.includes(:gift_image).find(params[:id])
   end
 
   def show
     @gift = Gift.find(params[:id])
   end
 
-  private
+private
 
-    def gift_params
-      params.require(:gift).permit(:title, :price, :availability, :description, :gift_images_attributes: [:id, :photo)
-    end
+  def gift_params
+    params[:gift][:gift_image_attributes] = params[:gift][:gift_image] if params[:gift][:gift_image]
+    params.require(:gift).permit(:title, :price, :availability, :description, gift_image_attributes: [:id, :photo])
+  end
 end
