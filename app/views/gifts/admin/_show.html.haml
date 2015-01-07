@@ -3,21 +3,25 @@
     = @gift.title
   .panel-body
     .row
-      .col-md-4
+      .col-md-5
         .thumbnail
           = image_tag @gift.gift_image.photo.url(:medium)
-      .col-md-8
+      .col-md-7
         .caption
-          = @gift.description
-
-          = @gift.price
-          %span.glyphicon.glyphicon-euro
-          - if @gift.available?
-            .small
+          %p
+            = @gift.description
+          %p
+            .pull-right
+              Prix:
+              = @gift.price
+              €
+            .pull-left
               Disponnibilité:
               = @gift.availability
-          - else
-            .red
-              Cet article n'est plus disponnible
-%p
-  = link_to "Modifier", edit_gift_path(@gift)
+    .row
+      .col-md-4
+        = link_to "Liste des cadeaux", gifts_path, class: "btn btn-primary btn-lg btn-block"
+      .col-md-4
+        = link_to "Modifier", edit_gift_path(@gift), class: "btn btn-primary btn-lg btn-block"
+      .col-md-4
+        = link_to "Supprimer", gift_path(@gift), method: :delete, class: "btn btn-danger btn-lg btn-block"
