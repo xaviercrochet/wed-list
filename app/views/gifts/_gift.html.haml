@@ -16,7 +16,10 @@
           .red.small
             Cet article n'est plus disponnible
       = link_to gift_path(gift), class: "thumbnail" do
-        = image_tag gift.gift_images.first.photo.url(:medium), style: "height: 200px; width: 100%"
+        - if ! gift.gift_image.nil?
+          = image_tag gift.gift_image.photo.url(:medium), style: "height: 200px; width: 100%"
+        - else
+          %span.glyphicon.glyphicon-eye-open
       %p
         .pull-left
         - if user_signed_in?
