@@ -6,19 +6,21 @@
       - @gift.errors.full_messages.each do |msg|
         %p
           = msg
-    .form-group
-      = f.text_field :title, placeholder: "Titre", class: "form-control"
-    .form-group
-      = f.text_area :description, placeholder: "Description", class: "form-control"
-    .form-group.pull-left
-      = f.number_field :price, placeholder: "Prix", class: "form-control"
-    .form-group.pull-right
-      = f.number_field :availability, placeholder: "Disponnibilité", class: "form-control"
-    .form-group
-      = f.fields_for @gift.gift_image do |builder|
-        = builder.label :photo, "Photo"
-        = builder.image_tag builder.object.photo.url(:medium) if builder.object.photo?
-        = builder.file_field :photo
-    .form-group
-
-      = f.submit "Créer le cadeau", class: "btn btn-primary btn-lg btn-block"
+    .row
+      .form-group
+        = f.text_field :title, placeholder: "Titre", class: "form-control"
+      .form-group
+        = f.text_area :description, placeholder: "Description", class: "form-control"
+      .form-group.pull-left
+        = f.number_field :price, placeholder: "Prix", class: "form-control"
+      .form-group.pull-right
+        = f.number_field :availability, placeholder: "Disponnibilité", class: "form-control"
+    .row
+      .form-group
+        = f.fields_for @gift.gift_image do |builder|
+          = builder.label :photo, "Photo"
+          = image_tag builder.object.photo.url(:thumb), class: "thumbnail" if builder.object.photo?
+          = builder.file_field :photo
+    .row
+      .form-group
+        = f.submit "Ok", class: "btn btn-primary btn-lg btn-block"
