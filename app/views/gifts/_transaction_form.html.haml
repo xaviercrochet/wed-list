@@ -1,5 +1,5 @@
 - if gift.available?
-  = link_to "#"+gift.id.to_s, "data-toggle" => "modal" do
+  = link_to "#"+gift.id.to_s, "data-toggle" => "modal", class: "btn btn-primary btn-lg btn-block" do
     %span.glyphicon.glyphicon-plus
   .modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1", id: gift.id}
     .modal-dialog.modal-sm
