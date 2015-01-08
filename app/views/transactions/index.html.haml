@@ -15,7 +15,10 @@
       %tr
         %td
           = link_to transaction.gift do
-            = image_tag transaction.gift.gift_images.first.photo.url(:medium), style: "height: 50px;"
+            - if ! transaction.gift.gift_image.nil?
+              = image_tag transaction.gift.gift_image.photo.url(:thumb)
+            - else
+              %glyphicon.glyphicon-eye-open
         %td
           = transaction.quantity
         %td

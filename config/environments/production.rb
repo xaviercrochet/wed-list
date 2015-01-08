@@ -16,6 +16,7 @@ Rails.application.configure do
 
   #mailer
   config.action_mailer.default_url_options = { :host => 'wedding-list.herokuapp.com' }
+  Rails.application.routes.default_url_options[:host] = 'yoursite.herokuapp.com'
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
