@@ -2,7 +2,7 @@
 .col-sm-4.col-md-4
   .panel.panel-default
     .panel-heading.text-center.small
-      =gift.title
+      = link_to gift.title, gift_path(gift)
     .panel-body
       %p
         Prix:
@@ -21,9 +21,5 @@
         - else
           %span.glyphicon.glyphicon-eye-open
       %p
-        .pull-left
         - if user_signed_in?
           = render "transaction_form", gift: gift
-        .pull-right
-          = link_to gift_path(gift) do
-            %span.glyphicon.glyphicon-zoom-in
