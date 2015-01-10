@@ -1,31 +1,32 @@
-.panel.panel-default
-  .panel-heading.text-center
-    = @gift.title
-  .panel-body
-    .row
-      .col-md-5
-        .thumbnail
-          = image_tag @gift.gift_image.photo.url(:medium)
-      .col-md-7
-        .caption
-          %p
-            = @gift.description
-          %p
-            .pull-right
-              Prix:
-              = @gift.price
-              €
-            .pull-left
-        - if @gift.available?
-          .small
-            Disponnibilité:
-            = @gift.availability
-        - else
-          .red
-            Cet article n'est plus disponnible
-    .row
-      .col-md-3
-        = link_to gifts_path, class: "btn btn-primary btn-lg btn-block" do
-          %span.glyphicon.glyphicon-chevron-left
-      .col-md-3.col-md-offset-6
-        = render "transaction_form", gift: @gift
+.col-md-8.col-md-offset-2
+  .panel.panel-default
+    .panel-heading.text-center
+      = @gift.title
+    .panel-body
+      .row
+        .col-md-6
+          .thumbnail
+            = image_tag @gift.gift_image.photo.url(:medium)
+            .caption
+              %p.pull-left.small
+                = @gift.price
+                €
+              %p.pull-right.small
+                - if @gift.available?
+                  Disponnibilité:
+                  = @gift.availability
+                - else
+                  .red
+                    Non dispo.
+              %br
+
+        .col-md-6
+          .caption
+            %p
+              = @gift.description
+      .row
+        .col-md-3
+          = link_to gifts_path, class: "btn" do
+            %span.glyphicon.glyphicon-chevron-left
+        .col-md-3.col-md-offset-6
+          = render "transaction_form", gift: @gift
