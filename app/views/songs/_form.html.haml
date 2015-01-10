@@ -1,0 +1,10 @@
+.form-inline
+  = form_for song do |f|
+    .form-group
+      = f.text_field :title, placeholder: "Titre", class: "form-control"
+    .form-group
+      = f.text_field :title, placeholder: "Artiste", class: "form-control"
+    .form-group
+      = f.text_field :url, placeholder: "Url (Youtube, Spotify, etc)", class: "form-control"
+    = button_tag songs_path(song), method: :post, class: "btn btn-default" do
+      %span.glyphicon.glyphicon-plus
