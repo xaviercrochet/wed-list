@@ -6,22 +6,27 @@
       .col-md-5
         .thumbnail
           = image_tag @gift.gift_image.photo.url(:medium)
+          .caption
+            %p
+              .pull-right
+                Prix:
+                = @gift.price
+                €
+              .pull-left
+                Disponnibilité:
+                = @gift.availability
+            %br
       .col-md-7
-        .caption
-          %p
-            = @gift.description
-          %p
-            .pull-right
-              Prix:
-              = @gift.price
-              €
-            .pull-left
-              Disponnibilité:
-              = @gift.availability
+        %p
+          = @gift.description
+
     .row
-      .col-md-4
-        = link_to "Liste des cadeaux", gifts_path, class: "btn btn-primary btn-lg btn-block"
-      .col-md-4
+      .col-md-5
+        = link_to gifts_path, class: "btn btn-primary btn-lg btn-block" do
+          .pull-left
+            %span.glyphicon.glyphicon-chevron-left
+          Liste des cadeaux
+      .col-md-3
         = link_to "Modifier", edit_gift_path(@gift), class: "btn btn-primary btn-lg btn-block"
-      .col-md-4
+      .col-md-3.col-md-offset-1
         = link_to "Supprimer", gift_path(@gift), method: :delete, class: "btn btn-danger btn-lg btn-block"
