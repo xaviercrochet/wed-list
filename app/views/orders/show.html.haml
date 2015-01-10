@@ -31,7 +31,11 @@
               Non validé
       .row
         %br
-        = link_to "Cadeaux commandés", "#transactionsCollapse", class: "btn btn-default btn-lg btn-block", "data-toggle" => "collapse", "aria-expanded" => "false", "aria-controls" => "transactionsCollapse"
+        = link_to "#transactionsCollapse", class: "btn btn-default btn-lg btn-block", "data-toggle" => "collapse", "aria-expanded" => "false", "aria-controls" => "transactionsCollapse" do
+          Cadeaux commandés
+          %span.badge
+            = @order.transactions.size
+
         #transactionsCollapse.collapse
           = render "transactions", transactions: @order.transactions
     .panel-heading
