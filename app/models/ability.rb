@@ -18,6 +18,9 @@ class Ability
       can :destroy, Order, :user_id => user.id, paid: false
       can :pay, Order, :user_id => user.id, paid: false
       can :paid, Order, user_id: user.id, paid: false
+      can :read, Song
+      can :create, Song
+      can :destroy, Song, :user_id => user.id
     end
     #
     # The first argument to `can` is the action you are giving the user
