@@ -29,6 +29,11 @@
           - else
             %span.label.label-warning
               Non validé
+      .row
+        %br
+        = link_to "Cadeaux commandés", "#transactionsCollapse", class: "btn btn-default btn-lg btn-block", "data-toggle" => "collapse", "aria-expanded" => "false", "aria-controls" => "transactionsCollapse"
+        #transactionsCollapse.collapse
+          = render "transactions", transactions: @order.transactions
     .panel-heading
       = link_to user_orders_path(@order.user), class: "btn btn-primary btn-lg btn-block" do
         .pull-left

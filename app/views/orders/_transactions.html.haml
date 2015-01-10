@@ -1,0 +1,22 @@
+%table.table.table-striped.table-hover
+  %thead.text-center
+    %tr
+      %th.text-center
+        %span.glyphicon.glyphicon-gift
+      %th.text-center
+        Quantité
+      %th.text-center
+        %span.glyphicon.glyphicon-euro
+  %tbody.text-center
+    - transactions.each do |transaction|
+      %tr
+        %td
+          = link_to transaction.gift do
+            - if ! transaction.gift.gift_image.nil?
+              = image_tag transaction.gift.gift_image.photo.url(:thumb)
+            - else
+              %glyphicon.glyphicon-eye-open
+        %td
+          = transaction.quantity
+        %td
+          = transaction.price
