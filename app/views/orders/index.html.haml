@@ -1,15 +1,17 @@
-%ul.nav.nav-tabs{role: "tablist"}
-  %li.active{role: "presentation"}
-    %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#unpaid", :role => "tab"} Non payées
-  %li{role: "presentation"}
-    %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#paid", :role => "tab"} Payées
-  %li{role: "presentation"}
-    %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#validated", :role => "tab"} Validées
+.panel.panel-default
 
-.tab-content
-  #unpaid.active.tab-pane{role: "tabpanel"}
-    = render 'orders', orders: @orders.unpaid, unpaid: true
-  #paid.tab-pane{role: "tabpanel"}
-    = render 'orders', orders: @orders.paid.unvalidated, unpaid: false
-  #validated.tab-pane{role: "tabpanel"}
-    = render 'orders', orders: @orders.validated, unpaid: false
+  %ul.nav.nav-tabs{role: "tablist"}
+    %li.active{role: "presentation"}
+      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#unpaid", :role => "tab"} Non payées
+    %li{role: "presentation"}
+      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#paid", :role => "tab"} Payées
+    %li{role: "presentation"}
+      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#validated", :role => "tab"} Validées
+
+  .tab-content
+    #unpaid.active.tab-pane{role: "tabpanel"}
+      = render 'orders', orders: @orders.unpaid, unpaid: true
+    #paid.tab-pane{role: "tabpanel"}
+      = render 'orders', orders: @orders.paid.unvalidated, unpaid: false
+    #validated.tab-pane{role: "tabpanel"}
+      = render 'orders', orders: @orders.validated, unpaid: false
