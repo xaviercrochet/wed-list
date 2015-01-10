@@ -11,7 +11,7 @@ class SongsController < ApplicationController
   end
 
   def create
-    @song = Song.create(song_params)
+    @song = current_user.songs.create(song_params)
     if @song.errors.any?
       render action: :new
     else
