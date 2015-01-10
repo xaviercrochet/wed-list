@@ -1,6 +1,7 @@
 class Song < ActiveRecord::Base
   belongs_to :user
-
+  validates :url, :format => URI::regexp(%w(http https))
+  validates_presence_of :title, :artist
   after_create :generate_youtube_url_if_nil_url
 
   def generate_youtube_url_if_nil_url
@@ -9,4 +10,7 @@ class Song < ActiveRecord::Base
       self.save
     end
   end
+
+
+
 end
