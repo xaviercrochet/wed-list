@@ -1,20 +1,24 @@
 class Gift < ActiveRecord::Base
+  has_one :gift_image, dependent: :destroy
+  has_many :transactions, dependent: :destroy
+
   validates :title, presence: true
+  validates :gift_image, presence: true
   validates :price, presence: true
   validates :availability, presence: true
   validate :price_must_be_positive, :availability_must_be_strictly_positive, on: :create
   validate :availability_must_be_positive, on: :update
 
-  has_one :gift_image, dependent: :destroy
-  has_many :transactions, dependent: :destroy
-  accepts_nested_attributes_for :gift_image, allow_destroy: true
 
+  accepts_nested_attributes_for :gift_image
 
   def price_must_be_positive
     if ! price.nil? && price < 0
       errors.add(:price, "doit être positif (>=0)")
     end
   end
+
+
 
   def availability_must_be_positive
     if ! availability.nil? && availability <0

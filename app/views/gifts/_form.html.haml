@@ -17,7 +17,7 @@
         = f.number_field :availability, placeholder: "Disponnibilité", class: "form-control"
     .row
       .form-group
-        = f.fields_for @gift.gift_image do |builder|
+        = f.fields_for @gift.build_gift_image do |builder|
           = builder.label :photo, "Photo"
           = image_tag builder.object.photo.url(:thumb), class: "thumbnail" if builder.object.photo?
           = builder.file_field :photo
