@@ -1,0 +1,8 @@
+.panel.panel-default
+  .panel-heading.text-center
+    - if @song.errors.any?
+      %h3 Votre musique n'a pas pu être ajoutée à la playlist.
+      - @song.errors.full_messages.each do |msg|
+        %p
+          = msg
+    = render "form", song: @song
