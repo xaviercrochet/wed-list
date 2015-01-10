@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :transactions, only: [:create]
   end
 
+  resources :songs
+
   resources :users do
     resources :transactions, only: [:show, :update, :index, :destroy]
     resources :orders
