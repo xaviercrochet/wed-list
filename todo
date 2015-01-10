@@ -1,7 +1,8 @@
 Pouvoir Modifier les transactions
 rendre moin moche la vue détail sur gift
-ajouter small & huge aux photos
 limit ability of admin (destroying some stuff i.e.)
 ajouter numéro de téléphone ds user
 Tuner profil utilisateur
 nombre d'order sur les nav tabs
+dans order index, fixé le problème du background avec les tabs
+****
