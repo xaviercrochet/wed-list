@@ -1,4 +1,23 @@
-
-= render 'form', song: current_user.songs.build
 .panel.panel-default
+  .panel-heading.text-center
+    = render 'form', song: current_user.songs.build
   .panel-body
+    %table.table.table-striped.table-hover
+      %thead.text-center
+        %tr
+          %th.text-center
+            Titre
+          %th.text-center
+            Artiste
+          %th.text-center
+            Url
+      %tbody.text-center
+        - @songs.each do |song|
+          %tr
+            %td
+              = song.title
+            %td
+              = song.artist
+            %td
+              = link_to song.url, target: "_blank" do
+                %span.glyphicon.glyphicon-music
