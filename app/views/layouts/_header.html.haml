@@ -36,6 +36,8 @@
         %ul.nav.navbar-nav
           - if user_signed_in?
             %li
+              = link_to "Profil", user_path(current_user)
+            %li
               = link_to "Se déconnecter", destroy_user_session_path, :method => :delete
 
           - else
