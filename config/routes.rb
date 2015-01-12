@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   resources :songs
 
   resources :users do
+    member do
+      get :rsvp
+      get :update_rsvp
+    end
     resources :transactions, only: [:show, :update, :index, :destroy]
     resources :orders
   end

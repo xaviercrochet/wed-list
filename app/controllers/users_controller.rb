@@ -16,6 +16,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def rsvp
+    @user = current_user
+  end
+
+  def update_rsvp
+    @user = current_user
+    @user.update_rsvp!
+    redirect_to rsvp_user_path(@user)
+  end
+
   def index
     @users = User.all
   end
@@ -35,6 +45,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :coming, :phone)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone)
   end
 end
