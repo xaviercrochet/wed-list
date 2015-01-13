@@ -3,7 +3,10 @@
     .form
       = form_for @user do |f|
         - if @user.errors.any?
-          %h3 coucou
+          = render 'shared/error_messages'
+        - if flash[:success]
+          .alert.alert-success
+            = flash[:success]
         .form-group
           = f.label :name, "Prénom + Nom"
           = f.text_field :name, class: "form-control"

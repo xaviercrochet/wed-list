@@ -31,9 +31,16 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    if ! @user.errors.any?
+      flash[:success] = "Votre profil a été mis à jour."
+    end
+    render action: :edit
   end
 
   def destroy
