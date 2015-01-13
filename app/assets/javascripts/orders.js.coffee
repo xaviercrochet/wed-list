@@ -2,20 +2,20 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-main ->
-  $('unpaid').click(e) ->
-    e.preventDefaut()
+main = ->
+  $('unpaid').click (event) ->
+    event.preventDefaut()
     $(this).tab "show"
     return
 
-  $('paid').click(e) ->
-    e.preventDefaut()
+  $('paid').click (event) ->
+    event.preventDefaut()
     $(this).tab "show"
     return
 
 
-  $('validated').click(e) ->
-    e.preventDefaut()
+  $('validated').click (event) ->
+    event.preventDefaut()
     $(this).tab "show"
     return
 

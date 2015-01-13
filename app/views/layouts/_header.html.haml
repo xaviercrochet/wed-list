@@ -14,7 +14,7 @@
           %li
             = link_to "Liste des cadeaux", gifts_path
           %li
-            = link_to "Logement", "#"
+            = link_to "Logement", accomodation_path
           - if user_signed_in?
             - if current_user.admin?
               %li
