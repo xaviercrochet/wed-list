@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
   end
 
   def save_validation
-    @amount = params[:amount].first
+    @amount = params[:amount]
     hash = params[:communication]
     @order = Order.retrieve_order_from_hash(hash)
     if @order.nil?

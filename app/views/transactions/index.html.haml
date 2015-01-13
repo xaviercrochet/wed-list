@@ -1,32 +1,32 @@
-%h3.text-center Non commandés
-%table.table.table-striped.table-hover
-  %thead.text-center
-    %tr
-      %th.text-center
-        %span.glyphicon.glyphicon-gift
-      %th.text-center
-        Quantité
-      %th.text-center
-        %span.glyphicon.glyphicon-euro
-      %th.text-center
-        Modifier/Supprimer
-  %tbody.text-center
-    - @transactions.unordered.each do |transaction|
+.well.well-lg
+  %h3.text-center Non commandés
+  %table.table.table-striped.table-hover
+    %thead.text-center
       %tr
-        %td
-          = link_to transaction.gift do
-            - if ! transaction.gift.gift_image.nil?
-              = image_tag transaction.gift.gift_image.photo.url(:thumb)
-            - else
-              %glyphicon.glyphicon-eye-open
-        %td
-          = transaction.quantity
-        %td
-          = transaction.price
-        %td
-          = link_to user_transaction_path(current_user, transaction), method: :delete do
-            %span.glyphicon.glyphicon-remove
+        %th.text-center
+          %span.glyphicon.glyphicon-gift
+        %th.text-center
+          Quantité
+        %th.text-center
+          %span.glyphicon.glyphicon-euro
+        %th.text-center
+          Modifier/Supprimer
+    %tbody.text-center
+      - @transactions.unordered.each do |transaction|
+        %tr
+          %td
+            = link_to transaction.gift do
+              - if ! transaction.gift.gift_image.nil?
+                = image_tag transaction.gift.gift_image.photo.url(:thumb)
+              - else
+                %glyphicon.glyphicon-eye-open
+          %td
+            = transaction.quantity
+          %td
+            = transaction.price
+          %td
+            = link_to user_transaction_path(current_user, transaction), method: :delete do
+              %span.glyphicon.glyphicon-remove
 
-- if @transactions.unordered.size > 0
-  .pull-right
-    = link_to "Commander ces articles", user_orders_path(current_user), method: :post
+  - if @transactions.unordered.size > 0
+    = link_to "Commander ces articles", user_orders_path(current_user), method: :post, class: "btn btn-default"
