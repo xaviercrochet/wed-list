@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :transactions, only: [:create]
   end
 
+  get :accomodation, controller: :home
   resources :songs
 
   resources :users do
