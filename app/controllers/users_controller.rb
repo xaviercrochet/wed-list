@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_filter :authenticate_user!
+
   def new
     @user = User.new
   end
@@ -40,6 +43,7 @@ class UsersController < ApplicationController
     if ! @user.errors.any?
       flash[:success] = "Votre profil a été mis à jour."
     end
+    sign_in @user, :bypass => true
     render action: :edit
   end
 

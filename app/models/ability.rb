@@ -10,6 +10,8 @@ class Ability
       can :manage, :all
     else
       can :read, Gift
+      can :read, User, :user_id => user.id
+      can :update, User, :user_id => user.id
       can :read, Transaction
       can :create, Transaction
       can :destroy, Transaction, :user_id => user.id, :order_id => nil

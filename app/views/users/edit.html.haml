@@ -4,7 +4,7 @@
       = form_for @user do |f|
         - if @user.errors.any?
           = render 'shared/error_messages'
-        - if flash[:success]
+        - if ! flash[:success].nil?
           .alert.alert-success
             = flash[:success]
         .form-group
