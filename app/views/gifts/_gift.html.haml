@@ -2,12 +2,12 @@
 .col-sm-4.col-md-4
   .panel.panel-default
     .panel-heading.text-center.small
-      = link_to gift.title, gift_path(gift), style: "text-overflow:ellipsis"
+      = link_to truncate(gift.title, length: 27), gift_path(gift)
     .panel-body
       %p
         Prix:
         = gift.price
-        %span.glyphicon.glyphicon-euro
+        €
       %p
         - if gift.available?
           Disponibilité:
