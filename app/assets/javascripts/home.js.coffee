@@ -32,3 +32,4 @@ main = () ->
     return
 
 $(document).ready(main)
+$(document).on('page:load', main)
