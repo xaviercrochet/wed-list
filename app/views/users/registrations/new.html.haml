@@ -1,13 +1,23 @@
-.row
-  .col-md-6.col-md-offset-3
-    %h3.text-center S'enregistrer
-    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-      = devise_error_messages!
-      = f.text_field :name, autofocus: true, class: "form-control", placeholder: "Prénom + Nom"
-      = f.email_field :email, class: "form-control", placeholder: "E-Mail"
-      = f.telephone_field :phone, class: "form-control", placeholder: "Téléphone"
-      = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Mot de passe"
-      = f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirmation"
+.col-md-8.col-md-offset-2
+  .well
+    .form
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = devise_error_messages!
+        .form-group
+          = f.label :name, "Prénom - Nom"
+          = f.text_field :name, autofocus: true, class: "form-control", class: "form-control"
+        .form-group
+          = f.label :email, "Email"
+          = f.email_field :email, class: "form-control", class: "form-control"
+        .form-group
+          = f.label :phone, "Téléphone"
+          = f.telephone_field :phone, class: "form-control", class: "form-control"
+        .form-group
+          = f.label :password, "Mot de passe"
+          = f.password_field :password, autocomplete: "off", class: "form-control", class: "form-control"
+        .form-group
+          = f.label :password_confirmation, "Confirmation"
+          = f.password_field :password_confirmation, autocomplete: "off", class: "form-control", class: "form-control"
 
-      = button_tag(type: "submit", class: "btn btn-default btn-lg btn-block") do
-        %span.glyphicon.glyphicon-ok
+        = button_tag(type: "submit", class: "btn btn-default btn-lg btn-block") do
+          %span.glyphicon.glyphicon-ok
