@@ -57,6 +57,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.2.2)
+    gmaps4rails (2.1.2)
     haml (4.0.5)
       tilt
     hashids (1.0.2)
@@ -177,6 +178,7 @@ DEPENDENCIES
   cancancan (~> 1.9)
   coffee-rails (~> 4.0.0)
   devise
+  gmaps4rails
   haml
   hashids
   jbuilder (~> 2.0)
