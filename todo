@@ -1,8 +1,10 @@
 Pouvoir Modifier les transactions
-rendre moin moche la vue détail sur gift
 limit ability of admin (destroying some stuff i.e.)
-ajouter numéro de téléphone ds user
-Tuner profil utilisateur
 nombre d'order sur les nav tabs
 dans order index, fixé le problème du background avec les tabs
 ajouter lien dans la landing page
+RSVP => dégueu
+désactiver les liens navbar si empty
+redirection après achat ou commande
+Marquer la commande COMME et pas come
+destroy linked order when destroying gift

@@ -58,7 +58,7 @@ class OrdersController < ApplicationController
     @order.transactions << current_user.transactions.unordered
     @order.compute_price
     @order.generate_communication
-    redirect_to user_transactions_path(current_user)
+    redirect_to @order
   end
 
   def index
