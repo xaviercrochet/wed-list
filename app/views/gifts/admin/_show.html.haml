@@ -5,7 +5,10 @@
     .row
       .col-md-5
         .thumbnail
-          = image_tag @gift.gift_image.photo.url(:medium)
+          - if ! @gift.gift_image.nil?
+            = image_tag @gift.gift_image.photo.url(:medium)
+          - else
+            %span.glyphicon.glyphicon-remove
           .caption
             %p
               .pull-right
@@ -17,8 +20,7 @@
                 = @gift.availability
             %br
       .col-md-7
-        %p
-          = @gift.description
+        = simple_format(@gift.description)
 
     .row
       .col-md-5
