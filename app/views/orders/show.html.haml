@@ -1,34 +1,36 @@
 .col-md-8.col-md-offset-2
 
   .panel.panel-default
-    .panel-heading
-      .row
-        .col-md-3
-          Prix
-        .col-md-6
-          Communication Libre
-        .col-md-3
-          Statut
     .panel-body
-      .row
-        .col-md-3
-          = @order.price
-          %span.glyphicon.glyphicon-euro
-        .col-md-6.text-center
-          = @order.communication
-        .col-md-3
-          - if @order.paid
-            %span.label.label-success
-              Payé
-          - else
-            %span.label.label-danger
-              Non Payé
-          - if @order.validated
-            %span.label.label-success
-              Validé
-          - else
-            %span.label.label-warning
-              Non validé
+      %table.table
+        %thead.text-center
+          %tr
+            %th.text-center
+              Prix
+            %th.text-center
+              Communication Libre
+            %th.text-center
+              Statut
+        %tbody
+          %tr
+            %td.text-center
+              = @order.price
+              €
+            %td.text-center
+              = @order.communication
+            %td.text-center
+              - if @order.paid
+                %span.label.label-success
+                  Payé
+              - else
+                %span.label.label-danger
+                  Non Payé
+              - if @order.validated
+                %span.label.label-success
+                  Validé
+              - else
+                %span.label.label-warning
+                  Non validé
       .row
         %br
         = link_to "#transactionsCollapse", class: "btn btn-default btn-lg btn-block", "data-toggle" => "collapse", "aria-expanded" => "false", "aria-controls" => "transactionsCollapse" do
@@ -39,13 +41,9 @@
         #transactionsCollapse.collapse
           = render "transactions", transactions: @order.transactions
     .panel-heading
-      = link_to user_orders_path(@order.user), class: "btn btn-primary btn-lg btn-block" do
-        .pull-left
-          %span.glyphicon.glyphicon-chevron-left
+      = link_to user_orders_path(@order.user), class: "btn btn-default" do
         Mes commandes
       -if ! @order.paid
-        = link_to "Payer maintenant", order_pay_path(@order), class: "btn btn-primary btn-lg btn-block"
-        = link_to user_order_path(@order.user, @order), method: :delete, class: "btn btn-danger btn-lg btn-block" do
+        = link_to "Payer maintenant", order_pay_path(@order), class: "btn btn-default"
+        = link_to user_order_path(@order.user, @order), method: :delete, class: "btn btn-default" do
           Supprimer
-          .pull-right
-            %span.glyphicon.glyphicon-remove
