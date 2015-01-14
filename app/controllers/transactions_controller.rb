@@ -22,7 +22,7 @@ class TransactionsController < ApplicationController
     end
     #update gift availability
     gift.update_availability_by(params[:quantity])
-    redirect_to root_path
+    redirect_to user_transactions_path(current_user)
   end
 
   def destroy

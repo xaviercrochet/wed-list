@@ -40,7 +40,7 @@ class Transaction < ActiveRecord::Base
 
 
   def restore_availability_on_destroy
-    if ! (has_order? and self.order.validated?)
+    if ! self.gift.nil? and ! (has_order? and self.order.validated?)
       self.gift.update(availability: self.gift.availability+quantity) if ! quantity.nil?
     end
   end
