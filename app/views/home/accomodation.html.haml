@@ -1,22 +1,27 @@
 
 .container
-  .col-md-8
-    .row
-      .col-md-3
-        .row
-          .well.well-sm
-            %address
-              %strong
-                Hotel Les Bruyères
-                %br
-              78 route de la barrière
-              %br
-              6971 Tenneville
-        .row
-          =link_to "https://www.google.be/maps/dir//Hotel+Les+Bruy%C3%A8res,+Route+de+la+Barri%C3%A8re+78,+6971+Champion/@50.1057034,5.475856,18z/data=!4m13!1m4!3m3!1s0x47c03099a327661b:0xfe5ec2d9ac3b5f7e!2sHotel+Les+Bruy%C3%A8res!3b1!4m7!1m0!1m5!1m1!1s0x47c03099a327661b:0xfe5ec2d9ac3b5f7e!2m2!1d5.476194!2d50.105275", class: "btn btn-default btn-lg btn-block", target: "_blank" do
-            %span.glyphicon.glyphicon-road
-            Itininéraire
-    .row
-      %br
+  .row
+    .col-md-6
       .well
-        #map{style: "width: 720px; height: 500px;"}
+        #map{style: "width: 960; height: 500px;"}
+    .col-md-2
+      .well.well-sm
+        %address
+          %strong
+            Hotel Les Bruyères
+            %br
+          78 route de la barrière
+          %br
+          6971 Tenneville
+          =link_to "https://www.google.be/maps/dir//Hotel+Les+Bruy%C3%A8res,+Route+de+la+Barri%C3%A8re+78,+6971+Champion/@50.1057034,5.475856,18z/data=!4m13!1m4!3m3!1s0x47c03099a327661b:0xfe5ec2d9ac3b5f7e!2sHotel+Les+Bruy%C3%A8res!3b1!4m7!1m0!1m5!1m1!1s0x47c03099a327661b:0xfe5ec2d9ac3b5f7e!2m2!1d5.476194!2d50.105275", class: "btn btn-default", target: "_blank" do
+            %span.glyphicon.glyphicon-road
+      .well.well-sm
+        %address
+          %strong
+            Hotel Les Bruyères
+            %br
+          78 route de la barrière
+          %br
+          6971 Tenneville
+          =link_to "https://www.google.be/maps/dir//Hotel+Les+Bruy%C3%A8res,+Route+de+la+Barri%C3%A8re+78,+6971+Champion/@50.1057034,5.475856,18z/data=!4m13!1m4!3m3!1s0x47c03099a327661b:0xfe5ec2d9ac3b5f7e!2sHotel+Les+Bruy%C3%A8res!3b1!4m7!1m0!1m5!1m1!1s0x47c03099a327661b:0xfe5ec2d9ac3b5f7e!2m2!1d5.476194!2d50.105275", class: "btn btn-default", target: "_blank" do
+            %span.glyphicon.glyphicon-road
