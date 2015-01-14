@@ -22,8 +22,7 @@
 
         .col-md-6
           .caption
-            %p
-              = @gift.description
+            = simple_format(@gift.description)
       .row
         .col-md-3
           = link_to :back, class: "btn" do
