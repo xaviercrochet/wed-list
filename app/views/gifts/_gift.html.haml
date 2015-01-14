@@ -2,7 +2,7 @@
 .col-sm-4.col-md-4
   .panel.panel-default
     .panel-heading.text-center.small
-      = link_to truncate(gift.title, length: 27), gift_path(gift)
+      = link_to truncate(gift.title, length: 27), gift_path(gift), class: "gift-links"
     .panel-body
       %p
         Prix:
