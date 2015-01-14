@@ -13,7 +13,7 @@
             .modal-footer.center
               = form_for [gift, gift.transactions.new] do |f|
                 = select_tag :quantity, options_for_select((1..gift.availability)), class: "form-control"
-                = f.submit "Ajouter", class: "btn btn-block btn-primary"
+                = f.submit "Ajouter", class: "btn btn-primary"
   - else
     %span.has-tooltip.tooltip-danger{"data-toggle" => "tooltip", title: "Plus disponnible :-/", "data-placement" => "right"}
       .glyphicon.glyphicon-plus.red
