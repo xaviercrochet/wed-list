@@ -3,21 +3,29 @@
     .panel-heading.text-center
       Virement à envoyer
     .panel-body.text-center
-      .row
-        .col-md-2
-          Montant
-        .col-md-4
-          Communication
-        .col-md-6
-          Numéro de compte
-      .row
-        .col-md-2
-          = @order.price
-          %span.glyphicon.glyphicon-euro
-        .col-md-4
-          = @order.communication
-        .col-md-6
-          xxxxxx
+      %table.table.table-responsive
+        %thead
+          %tr
+            %th.text-center
+              Montant
+            %th.text-center
+              Communication
+            %th.text-center
+              Numéro de compte
+        %tbody
+          %tr
+            %td.text-center
+              = @order.price
+              €
+            %td.text-center
+              = @order.communication
+            %td.text-center
+              xxx-xxxxx-xxx
+          %tr
+            %td
+            %td
+            %td
+
   .alert.alert-danger.alert-dismissible.fade.in{:role => "alert"}
     %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
       %span{"aria-hidden" => "true"} ×
@@ -25,10 +33,14 @@
     %ul
       %li.glyphicon.glyphicon-info-sign
         %span
-          Insérer la communication dans le champ "Communication LIBRE" du virement.
+          Insérer la communication dans le champ
+          %strong Communication LIBRE
+          du virement.
       %li.glyphicon.glyphicon-info-sign
         %span
-          Une fois le virement effectué, ne pas oublier pas de marquer la commande comme payée.
+          Une fois le virement effectué, ne pas oublier pas de
+          %strong marquer
+          la commande comme payée.
     %br
     = link_to order_paid_path(@order), method: :post, class: "btn btn-default btn-lg btn-block" do
       .pull-left
