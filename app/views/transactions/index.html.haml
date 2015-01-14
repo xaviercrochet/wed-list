@@ -19,7 +19,7 @@
               - if ! transaction.gift.gift_image.nil?
                 = image_tag transaction.gift.gift_image.photo.url(:thumb)
               - else
-                %glyphicon.glyphicon-eye-open
+                %span.glyphicon.glyphicon-eye-open
           %td
             = transaction.quantity
           %td
