@@ -2,9 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-//= require underscore
-//= require gmaps/google
-
 
 main = () ->
   handler = Gmaps.build("Google")
@@ -32,4 +29,3 @@ main = () ->
     return
 
 $(document).ready(main)
-$(document).on('page:load', main)
