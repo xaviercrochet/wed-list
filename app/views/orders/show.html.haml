@@ -38,7 +38,7 @@
           %span.badge
             = @order.transactions.size
 
-        #transactionsCollapse.collapse
+        #transactionsCollapse.collapse.in
           = render "transactions", transactions: @order.transactions
     .panel-heading
       = link_to user_orders_path(@order.user), class: "btn btn-default" do
