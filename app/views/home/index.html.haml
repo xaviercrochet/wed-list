@@ -10,8 +10,12 @@
     %p.text-justify
       %small
         En attendant de fêter avec vous ce grand jour,
-        vous trouverez ici des infos sur l'organisation de la journée,
-        les possibilités de logement, la play-list de la soirée
+        vous trouverez ici des
+        = link_to "infos", root_path+"#infos"
+        sur l'organisation de la journée, les
+        = link_to "possibilités de logement", accomodation_path
+        la
+        = link_to "play-list de la soirée", songs_path
         et autres détails qui feront de cette journée un moment inoubliable.
 #infos
   .text-center
