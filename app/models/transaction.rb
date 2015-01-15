@@ -19,6 +19,11 @@ class Transaction < ActiveRecord::Base
     ! self.order.nil?
   end
 
+
+  def unpaid?
+    ! self.order.nil? and self.order.unpaid?
+  end
+
   def update_transaction_quantity_and_price(quantity)
     new_quantity = self.quantity + quantity.to_i
     self.quantity = new_quantity

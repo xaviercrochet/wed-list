@@ -8,7 +8,7 @@ class Gift < ActiveRecord::Base
   validates :availability, presence: true
   validate :price_must_be_positive, :availability_must_be_strictly_positive, on: :create
   validate :availability_must_be_positive, on: :update
-  before_destroy :delete_transactions
+  before_destroy :delete_unpaid_transactions
 
   accepts_nested_attributes_for :gift_image
 
@@ -20,7 +20,7 @@ class Gift < ActiveRecord::Base
 
   def delete_transactions
     self.transactions.each do |t|
-      t.destroy
+      t.destroy if t.unpaid?
     end
   end
 

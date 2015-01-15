@@ -27,6 +27,10 @@ class Order < ActiveRecord::Base
     return hashids.decode(hash)
   end
 
+  def unpaid?
+    ! self.paid
+  end
+
   def self.retrieve_order_from_hash(hash)
     return Order.find(Order.decode_communication(hash)).first
   end
