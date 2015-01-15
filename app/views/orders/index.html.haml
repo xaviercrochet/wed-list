@@ -2,11 +2,20 @@
 
   %ul.nav.nav-tabs{role: "tablist"}
     %li.active{role: "presentation"}
-      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#unpaid", :role => "tab"} Non payées
+      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#unpaid", :role => "tab"}
+        Non payées
+        %span.badge
+          = @orders.unpaid.size
     %li{role: "presentation"}
-      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#paid", :role => "tab"} Payées
+      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#paid", :role => "tab"}
+        Payées
+        %span.badge
+          = @orders.paid.unvalidated.size
     %li{role: "presentation"}
-      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#validated", :role => "tab"} Validées
+      %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#validated", :role => "tab"}
+        Validées
+        %span.badge
+          = @orders.validated.size
 
   .tab-content
     #unpaid.active.tab-pane{role: "tabpanel"}
