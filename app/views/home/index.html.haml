@@ -1,15 +1,43 @@
-
-.jumbotron
-  %h2.text-center Bientôt notre grand "OUI"!
-  = image_tag "manuetpaul.jpg", class: "img-circle center-block"
-  %p.lead
-    %br
-    En 2008 c'est le coup de foudre, le
-    %strong 18 avril 2015
-    nous sautons le pas...
-  %p.text-justify
-    %small
-      En attendant de fêter avec vous ce grand jour,
-      vous trouverez ici des infos sur l'organisation de la journée,
-      les possibilités de logement, la play-list de la soirée
-      et autres détails qui feront de cette journée un moment inoubliable.
+#intro
+  .well
+    %h2.text-center Bientôt notre grand "OUI"!
+    = image_tag "manuetpaul.jpg", class: "img-circle center-block"
+    %p.lead
+      %br
+      En 2008 c'est le coup de foudre, le
+      %strong 18 avril 2015
+      nous sautons le pas...
+    %p.text-justify
+      %small
+        En attendant de fêter avec vous ce grand jour,
+        vous trouverez ici des infos sur l'organisation de la journée,
+        les possibilités de logement, la play-list de la soirée
+        et autres détails qui feront de cette journée un moment inoubliable.
+#infos
+  .text-center
+    .row
+      .col-md-4
+        .panel.panel-default
+          .panel-heading
+            %strong
+              Où?
+          .panel-body
+            %strong
+              La ferme du Château
+            %br
+            Basseilles, 1
+            %br
+            6970 Tenneville
+            %br
+            = link_to "http://tinyurl.com/l8zrooc", class: "btn btn-default", target: "_blank" do
+              %span.glyphicon.glyphicon-road
+      .col-md-8
+        .panel.panel-default{style: "height: 169px;"}
+          .panel-heading
+            %strong
+              Quand?
+          .panel-body
+            %strong
+              Le 18 Avril 2015
+            %br
+            La célébration se tiendra à l'Église Saint-Martin d’Arlon à 14 heures
