@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       get :update_rsvp
     end
     resources :transactions, only: [:show, :update, :index, :destroy]
-    resources :orders
+    resources :orders, shallow: true
   end
 
   resources :orders, only: [:show, :index, :destroy] do
