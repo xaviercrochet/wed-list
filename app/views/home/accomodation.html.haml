@@ -1,27 +1,87 @@
+.panel.panel-default
+  .panel-body
+    %table.table.table-striped.table-responsive
+      %thead
+        %tr
+          %th.text-center
+            Nom
+          %th.text-center
+            Adresse
+          %th.text-center
+            Itinéraire
+      %tbody.text-center
+        %tr
+          %td
+            Hotel Les Bruyères
+          %td
+            78 route de la barrière 6971 Tenneville
+          %td
+            =link_to "http://tinyurl.com/kz9fu9y", class: "btn btn-default", target: "_blank" do
+              %span.glyphicon.glyphicon-road
+        %tr
+          %td
+            LES TRAPPEURS Chambres & Tables
+          %td
+            36A Laneuville-au-Bois 6970 Tenneville
+          %td
+            = link_to "http://goo.gl/blnPcd", class: "btn btn-default", target: "_blank" do
+              %span.glyphicon.glyphicon-road
+        %tr
+          %td
+            Auberge de Lavacherie
+          %td
+            6681 Lavacherie Ste-Ode
+          %td
+            = link_to "http://goo.gl/QnZTVJ", class: "btn btn-default", target: "_blank" do
+              %span.glyphicon.glyphicon-road
+        %tr
+          %td
+            Le Marronier
+          %td
+            2 rue du Marronnier 6980 Beausaint
+          %td
+            = link_to "http://goo.gl/SmHhXY", class: "btn btn-default", target: "_blank" do
+              %span.glyphicon.glyphicon-road
+        %tr
+          %td
+            La Niouche
+          %td
+            27 rue devant Thimont 6983 La Roche-En-Ardenne
+          %td
+            = link_to "http://goo.gl/pWeOX6", class: "btn btn-default", target: "_blank" do
+              %span.glyphicon.glyphicon-road
+        %tr
+          %td
+            Le Corumont
+          %td
+            13 rue Corumont 6983 La Roche-En-Ardenne
+          %td
+            = link_to "http://goo.gl/eS5Ni1", class: "btn btn-default", target: "_blank" do
+              %span.glyphicon.glyphicon-road
+        %tr
+          %td
+            Moulin de la Strument
+          %td
+            62 Petite Strument 6980 La Roche-En-Ardenne
+          %td
+            = link_to "http://goo.gl/wvD2Ly", class: "btn btn-default", target: "_blank" do
+              %span.glyphicon.glyphicon-road
+        %tr
+          %td
+            Hotel Resto Leon
+          %td
+            4 rue de Beausaint 6980 La Roche-En-Ardenne
+          %td
+            = link_to "http://goo.gl/gnngb9", class: "btn btn-default", target: "_blank" do
+              %span.glyphicon.glyphicon-road
 
-.container
-  .row
-    .col-md-6
-      .well
-        #map{style: "width: 960; height: 500px;"}
-    .col-md-2
-      .well.well-sm
-        %address
-          %strong
-            Hotel Les Bruyères
-            %br
-          78 route de la barrière
-          %br
-          6971 Tenneville
-          =link_to "http://tinyurl.com/kz9fu9y", class: "btn btn-default", target: "_blank" do
-            %span.glyphicon.glyphicon-road
-      .well.well-sm
-        %address
-          %strong
-            Hotel Les Bruyères
-            %br
-          78 route de la barrière
-          %br
-          6971 Tenneville
-          =link_to "http://tinyurl.com/kz9fu9y", class: "btn btn-default", target: "_blank" do
-            %span.glyphicon.glyphicon-road
+        %tr
+          %td
+            Hostellerie La Claire Fontaine
+          %td
+            64 rue Vecpré 6980 La Roche-En Ardenne
+          %td
+            = link_to "http://goo.gl/0ww3Bs", class: "btn btn-default", target: "_blank" do
+              %span.glyphicon.glyphicon-road
+.well
+  #map{style: "width: 960; height: 500px;"}

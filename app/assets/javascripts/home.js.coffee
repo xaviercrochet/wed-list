@@ -15,7 +15,16 @@ main = () ->
       '<h3>Hotel Les Bruyères</h1>'+
       '<p>78 route de la barrière</p>'+
       '<p>6971 Tenneville</p></div>'
+
     markers = handler.addMarkers([
+      lat: 50.105
+      lng: 5.576
+      picture:
+        width: 36
+        height: 36
+      infowindow: contentString
+    ],
+    [
       lat: 50.105
       lng: 5.576
       picture:
