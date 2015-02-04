@@ -1,3 +1,15 @@
+.well
+  .media
+    .col-md-4
+      .thumbnail
+        = image_tag "dancing.jpg"
+    .col-md-8
+      %br
+      Notre dj a pour objectif de vous faire danser toute la nuit!
+
+      Cette rubrique est donc là pour que vous puissiez citer la(les) chanson(s) indispensable(s)
+      pour passer une bonne soirée et pour vous déhancher jusqu'à l'aube.
+
 .panel.panel-default
   .panel-heading.text-center
     = render 'form', song: current_user.songs.build
