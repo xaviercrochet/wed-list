@@ -14,9 +14,14 @@
  *= require_self
  */
  body {
+   background-image: url('bg.jpg');
+   background-size: cover;
    padding-top: 75px;
    font-family: "Courier New";
    font-weight: lighter;
+   background-attachment: fixed;
+background-repeat: no-repeat;
+background-position: center center;
  }
 
 
