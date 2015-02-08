@@ -1,0 +1,10 @@
+%p
+  Snap, something wrong happen :()
+
+- errors.all.each do |error|
+  .alert.alert-danger.alert-dismissible.fade.in{role: "alert"}
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+    %strong
+      fdsfs
+      = error.full_messages
