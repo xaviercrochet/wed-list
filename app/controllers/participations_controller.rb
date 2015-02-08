@@ -23,10 +23,12 @@ class ParticipationsController < ApplicationController
   def update
     @participation = current_user.participation
     @participation.update(participation_params)
+    flash[:success] = false
     if ! @participation.errors.any?
       flash[:success] = true
     end
-    redirect_to edit_user_participation_path(current_user, @participation)
+
+    render action: :edit
   end
 
   def new
