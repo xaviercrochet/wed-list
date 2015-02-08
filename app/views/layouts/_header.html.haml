@@ -27,7 +27,7 @@
               %li
                 = link_to "Mes commmandes", user_orders_path(current_user)
               %li
-                = link_to "RSVP", rsvp_user_path(current_user)
+                = link_to "RSVP", user_participation_path(current_user, current_user.participation)
               %li
                 = link_to "Playlist", songs_path
 

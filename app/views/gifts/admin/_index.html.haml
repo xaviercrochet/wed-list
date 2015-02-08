@@ -1,33 +1,32 @@
-.panel.panel-default
-  .panel-heading
-    = link_to 'Nouveau cadeau', new_gift_path, class: "btn btn-primary btn-lg btn-block"
-  .panel-body
-    %table.table.table-striped.table-hover
-      %thead
-        %tr
-          %th.text-center
-            %span.glyphicon.glyphicon-camera
-          %th.text-center Titre
-          %th.text-center Prix
-          %th.text-center Disponnibilité
-          %th.text-center Détails
-          %th.text-center Modifier
-          %th.text-center Supprimer
-      %tbody.text-center
-        - @gifts.each do |gift|
-          %tr
-            %td
-              - if ! gift.gift_image.nil?
-                = image_tag gift.gift_image.photo.url(:thumb), style: "height:32px;"
-            %td= gift.title
-            %td= gift.price
-            %td= gift.availability
-            %td
-              = link_to gift_path(gift) do
-                %span.glyphicon.glyphicon-zoom-in
-            %td
-              = link_to edit_gift_path(gift) do
-                %span.glyphicon.glyphicon-cog
-            %td
-              = link_to gift_path(gift), method: :delete, data: { confirm: 'Êtes-vous sûr?' } do
-                %span.glyphicon.glyphicon-remove
+
+= link_to 'Nouveau cadeau', new_gift_path, class: "btn btn-primary btn-lg btn-block"
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th.text-center
+        %span.glyphicon.glyphicon-camera
+      %th.text-center Titre
+      %th.text-center Prix
+      %th.text-center Disponnibilité
+      %th.text-center Détails
+      %th.text-center Modifier
+      %th.text-center Supprimer
+  %tbody.text-center
+    - @gifts.each do |gift|
+      %tr
+        %td
+          - if ! gift.gift_image.nil?
+            = image_tag gift.gift_image.photo.url(:thumb), style: "height:32px;"
+        %td= gift.title
+        %td= gift.price
+        %td= gift.availability
+        %td
+          = link_to gift_path(gift) do
+            %span.glyphicon.glyphicon-zoom-in
+        %td
+          = link_to edit_gift_path(gift) do
+            %span.glyphicon.glyphicon-cog
+        %td
+          = link_to gift_path(gift), method: :delete, data: { confirm: 'Êtes-vous sûr?' } do
+            %span.glyphicon.glyphicon-remove
