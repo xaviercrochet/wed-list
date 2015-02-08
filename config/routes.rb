@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     end
     resources :transactions, only: [:show, :update, :index, :destroy]
     resources :orders
+    resources :participations
   end
 
   resources :orders, only: [:show, :index, :destroy] do

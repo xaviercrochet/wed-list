@@ -27,7 +27,10 @@
               %li
                 = link_to "Mes commmandes", user_orders_path(current_user)
               %li
-                = link_to "RSVP", user_participation_path(current_user, current_user.participation)
+                - if current_user.coming?
+                  = link_to "RSVP", edit_user_participation_path(current_user, current_user.participation)
+                - else
+                  = link_to "RSVP", new_user_participation_path(current_user)
               %li
                 = link_to "Playlist", songs_path
 
