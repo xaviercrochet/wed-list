@@ -13,7 +13,6 @@ class ParticipationsController < ApplicationController
   end
 
   def new
-
     @participation = Participation.new
   end
 end

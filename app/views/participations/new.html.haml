@@ -4,7 +4,8 @@
       Merci de confirmer votre présence avant le
       %strong 01/03/2015.
     .panel-body
-      .pull-left
-        = link_to "Je viens :-)", "#", class: "btn btn-default", disabled: "disabled"
-      .pull-right
-        = link_to "Je ne viens pas :-(", '#', class: "btn btn-default", controller: :user, action: :update_rsvp
+      #form
+        .pull-left
+          = link_to "Je viens :-)", "#", class: "btn btn-default", disabled: "disabled"
+        .pull-right
+          = link_to "Je ne viens pas :-(", '#', class: "btn btn-default", controller: :user, action: :update_rsvp
