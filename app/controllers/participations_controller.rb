@@ -8,10 +8,12 @@ class ParticipationsController < ApplicationController
 
   def create
     @participation = current_user.create_participation(participation_params)
-    if ! @participations.errors.any?
+    if ! @participation.errors.any?
       flash[:success] = true
+      redirect_to edit_user_participation_path(current_user, @participation)
+    else
+      render action: :edit
     end
-    redirect_to edit_user_participation_path(current_user, @participation)
 
   end
 

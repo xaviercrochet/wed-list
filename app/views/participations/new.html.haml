@@ -4,8 +4,12 @@
       Merci de confirmer votre présence avant le
       %strong 01/03/2015.
     .panel-body
-      #form
-        .pull-left
-          = link_to "Je viens :-)", "#", class: "btn btn-default", disabled: "disabled"
-        .pull-right
-          = link_to "Je ne viens pas :-(", '#', class: "btn btn-default", controller: :user, action: :update_rsvp
+      = form_for [current_user, @participation], class: "form-inline" do |f|
+        .form-group
+          = f.label :adults, "Nombre d'adultes"
+          = f.select :adults, options_for_select((0..5), @participation.adults), class: "form-control"
+        .form-group
+          = f.label :kids, "Nombre d'enfants"
+          = f.select :kids, options_for_select((0..5), @participation.kids), class: "form-control"
+        = button_tag type: "submit", class: "btn btn-default btn-lg btn-block" do
+          Je viens :-)
