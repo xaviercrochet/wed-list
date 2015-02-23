@@ -17,4 +17,5 @@
 //= require underscore
 //= require gmaps/google
 //= require twitter/bootstrap
+//= require analytics
 //= require_tree .
