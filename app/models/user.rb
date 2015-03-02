@@ -26,8 +26,9 @@ class User < ActiveRecord::Base
 
   def not_coming?
     ! self.participation.nil? && self.participation.adults == 0 && self.participation.kids == 0
+  end
 
   def coming?
-    ! self.not_coming
+    ! self.not_responded_yet? && ! self.not_coming?
   end
 end
