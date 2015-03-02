@@ -20,11 +20,14 @@ class User < ActiveRecord::Base
     self.save
   end
 
-  def disabled?
-    self.coming?
+  def not_responded_yet?
+    self.participation.nil?
   end
 
+  def not_coming?
+    ! self.participation.nil? && self.participation.adults == 0 && self.participation.kids == 0
+
   def coming?
-    ! self.participation.nil?
+    ! self.not_coming
   end
 end
