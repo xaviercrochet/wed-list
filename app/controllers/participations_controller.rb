@@ -17,6 +17,10 @@ class ParticipationsController < ApplicationController
 
   end
 
+  def index
+    @participations = Participation.all
+  end
+
   def destroy
     current_user.participation.destroy
     redirect_to new_user_participation_path(current_user)

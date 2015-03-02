@@ -1,0 +1,30 @@
+.panel.panel-default
+  .panel-heading
+    Il y a
+    = Participation.all.count
+    personnes qui ont répondu pour le moment.
+  .panel-body
+    %table.table.table-bordered
+      %thead
+        %tr
+          %th
+            Nom
+          %th
+            Nombre d'enfants
+          %th
+            Nombre d'adultes
+      %tbody
+        - @participations.each do |participation|
+          %tr
+            %td
+              = participation.user.name
+            %td
+              = participation.adults
+            %td
+              = participation.kids
+        %tr
+          %th Total
+          %td
+            = Participation.total_kids_coming
+          %td
+            = Participation.total_adults_coming

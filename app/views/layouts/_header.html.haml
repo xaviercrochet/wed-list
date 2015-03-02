@@ -21,6 +21,9 @@
                 = link_to "Gérer les commandes"
               %li
                 = link_to "Valider une commande", validate_orders_path
+              %li
+                = link_to "Gérer les rsvp", participations_path
+
             - else
               %li
                 = link_to "Mon panier", user_transactions_path(current_user)

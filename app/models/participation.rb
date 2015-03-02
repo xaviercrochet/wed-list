@@ -23,4 +23,21 @@ class Participation < ActiveRecord::Base
       errors.add(:kids, "Doit être >= 0")
     end
   end
+
+  def self.total_kids_coming
+    result = 0
+    Participation.all.each do |p|
+      result += p.kids
+    end
+    result
+  end
+
+  def self.total_adults_coming
+    result = 0
+    Participation.all.each do |p|
+      result += p.adults
+    end
+    result
+  end
+
 end
